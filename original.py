@@ -21,9 +21,8 @@
 import sympy as syp
 import random,sys
 
-print "This version of tictactoe learns from its own mistakes.\nThe more you play with it the smarter it gets.\n"
-print "Key to this game is\n",syp.Matrix([[0,1,2],[3,4,5],[6,7,8]]),"\nThe e's represent empty slots.\n"
-print "The human plays crosses after the cpu has played, \n\n\t GOODLUCK!!"
+print("This version of tictactoe learns from its own mistakes.\nThe more you play with it the smarter it gets.\n","Key to this game is\n",syp.Matrix([[0,1,2],[3,4,5],[6,7,8]]),"\nThe e's represent empty slots.\n","The human plays crosses after the cpu has played, \n\n\t GOODLUCK!!")
+
 
 #_________________________________________________________________________________
 #
@@ -105,7 +104,7 @@ def game_engine():
         
 def intelligence_engine():
     learning_list = []
-    print "Loading Intelligence, please wait patiently.\n"
+    print("Loading Intelligence, please wait patiently.\n")
     for i in range(2500):
         l = game_engine()
         while len(l) == 9: # for obvious reasons here the learning lists must be long = hard enough
@@ -181,7 +180,7 @@ def play():
     j = myrand()
     i=j
     iq=intelligence_engine()
-    print "\nIntelligence vagueness",len(iq)
+    print("\nIntelligence vagueness",len(iq))
     aux1 = []
     while not exit_status:
 
@@ -191,7 +190,7 @@ def play():
             i = cpu(iq,i,j,n)    
         aux1.append(i)         
         A[game_key.values()[i]]=o
-        print A
+        print(A)
         
         #n=gc(n)
         j = usr(aux1)
@@ -202,22 +201,22 @@ def play():
             usr_in = input("I win \n Continue?[1/0]:\t")
             if usr_in == 0:
                 exit_status = True
-                print "Goodbye"
+                print("Goodbye")
             if usr_in == 1:
-                print "please wait for program update\n checking for pattern",aux1
+                print("please wait for program update\n checking for pattern",aux1)
 #-----------------------------------------------------------------------------------------------                
 ### Warning , this is the trickiest part of this program do not change this                   
                 temp_ex = False
                 k = 0
                 while k in range(len(iq)) and not temp_ex:
                     if iq[k][:len(aux1)]==aux1:
-                        print "Updating I.Q"
+                        print("Updating I.Q")
                         iq.pop(k)
                         temp_ex = True
                     else:
                         k=k+1
 ###################################################################################################
-                print "\nIntelligence sharpness",len(iq)
+                print("\nIntelligence sharpness",len(iq))
                 n = 0
                 A = play_field()
                 j = myrand()
@@ -229,23 +228,23 @@ def play():
             usr_in = input("You win \n Continue?[1/0]:\t")
             if usr_in == 0:
                 exit_status = True
-                print "Goodbye"
+                print("Goodbye")
             if usr_in == 1:
-                print "please wait for program update\n checking pattern",aux1   
+                print("please wait for program update\n checking pattern",aux1)   
 #-----------------------------------------------------------------------------------------------------
 # Warning , this is the trickiest part of this program do not change this                   
                 temp_ex = False
                 k = 0
                 while k in range(len(iq)) and not temp_ex:
                     if iq[k][:len(aux1)]==aux1:
-                        print "Updating I.Q"
+                        print("Updating I.Q")
                         iq.pop(k)
                         temp_ex = True
                     else:
                         k=k+1
 ###################################################################################################
                     
-                print "Intelligence sharpness",len(iq)
+                print("Intelligence sharpness",len(iq))
                 n = 0
                 A = play_field()
                 j = myrand()
@@ -253,7 +252,7 @@ def play():
                 aux1=[]
                 
         elif n>5:
-            print "Draw\n Better luck next time"
+            print("Draw\n Better luck next time")
             exit_status = True
                 
     if exit_status == True: # Just making sure it exits
